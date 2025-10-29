@@ -64,7 +64,7 @@ public class SortsTests {
     }
 
     @Test
-    public void testGnomeSort() {
-        testSort(Sorts::gnomeSort);
+    public void testEventSort() {
+        testSort(Sorts::eventSort);
     }
 }
