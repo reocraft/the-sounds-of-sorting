@@ -19,7 +19,7 @@ public class CopyEvent<T> implements SortEvent<T> {
 
     @Override
     public String toString() {
-        return "Copy value from index" + from + " to index " + dest;
+        return "Copy value from index " + from + " to index " + dest;
     }
 
     @Override

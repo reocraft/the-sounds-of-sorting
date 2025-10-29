@@ -17,7 +17,7 @@ public class CompareEvent<T> implements SortEvent<T> {
 
     @Override
     public String toString() {
-        return "Compare" + idx1 + " vs " + idx2;
+        return "Compare " + idx1 + " vs " + idx2;
     }
 
     @Override

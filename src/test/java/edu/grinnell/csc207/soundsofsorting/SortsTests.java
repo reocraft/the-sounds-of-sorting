@@ -2,10 +2,13 @@ package edu.grinnell.csc207.soundsofsorting;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Consumer;
 
 import org.junit.jupiter.api.Test;
 
+import edu.grinnell.csc207.soundsofsorting.sortevents.SortEvent;
 import edu.grinnell.csc207.soundsofsorting.sorts.Sorts;
 
 public class SortsTests {
@@ -66,5 +69,29 @@ public class SortsTests {
     @Test
     public void testEventSort() {
         testSort(Sorts::eventSort);
+    }
+
+    public static void main(String[] args) {
+        Integer[] arr = {5, 2, 8, 1, 3};
+
+        // Run mergeSort
+        List<SortEvent<Integer>> lst = Sorts.mergeSort(arr);
+
+        // Print out all the events
+        for (SortEvent<Integer> l : lst) {
+            System.out.println(l);
+        }
+
+        // Apply all the events to a fresh copy of the array
+        Integer[] arr2 = {5, 2, 8, 1, 3};
+        for (SortEvent<Integer> l : lst) {
+            l.apply(arr2);
+        }
+
+        System.out.println("After applying events: " + Arrays.toString(arr2));
+
+        // Optional: compare to fully sorted array
+        Integer[] expected = {1, 2, 3, 5, 8};
+        System.out.println("Sorted correctly? " + Arrays.equals(arr2, expected));
     }
 }
