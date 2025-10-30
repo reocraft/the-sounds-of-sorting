@@ -49,8 +49,10 @@ public class ControlPanel extends JPanel {
                 return Sorts.bubbleSort(arr);
             case "Merge":
                 return Sorts.mergeSort(arr);
-            case("Quick"):
+            case"Quick":
                 return Sorts.quickSort(arr);
+            case "Event":
+                return Sorts.eventSort(arr);
             default:
                 throw new IllegalArgumentException("generateEvents");
         }
@@ -100,7 +102,8 @@ public class ControlPanel extends JPanel {
             "Insertion",
             "Bubble",
             "Merge",
-            "Quick"
+            "Quick",
+            "Event"
         });
         add(sorts);
         
@@ -138,7 +141,10 @@ public class ControlPanel extends JPanel {
                 // TODO: fill me in!
                 // 1. Create the sorting events list
                 // 2. Add in the compare events to the end of the list
-                List<SortEvent<Integer>> events = new java.util.LinkedList<>();
+                Integer[] arrCopy = notes.getNotes().clone();
+                String sortName = (String) sorts.getSelectedItem();
+                List<SortEvent<Integer>> events = generateEvents(sortName, arrCopy);
+                //List<SortEvent<Integer>> events = new java.util.LinkedList<>();
                 
                 // NOTE: The Timer class repetitively invokes a method at a
                 //       fixed interval.  Here we are specifying that method
@@ -158,6 +164,15 @@ public class ControlPanel extends JPanel {
                             // 3. Play the corresponding notes denoted by the
                             //    affected indices logged in the event.
                             // 4. Highlight those affected indices.
+
+                            notes.clearAllHighlighted();
+                            e.apply(notes.getNotes());
+
+                            for (int i : e.getAffectedIndices()) {
+                                notes.highlightNote(i);
+                                scale.playNote(i, true);
+                            }
+
                             panel.repaint();
                         } else {
                             this.cancel();

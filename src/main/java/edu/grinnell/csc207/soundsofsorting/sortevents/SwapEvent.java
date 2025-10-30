@@ -17,7 +17,7 @@ public class SwapEvent<T> implements SortEvent<T> {
 
     @Override
     public String toString() {
-        return "Swap" + idx1 + " and " + idx2;
+        return "Swap " + idx1 + " and " + idx2;
     }
 
     @Override

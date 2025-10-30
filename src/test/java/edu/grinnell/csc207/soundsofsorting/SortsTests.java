@@ -75,7 +75,7 @@ public class SortsTests {
         Integer[] arr = {5, 2, 8, 1, 3};
 
         // Run mergeSort
-        List<SortEvent<Integer>> lst = Sorts.mergeSort(arr);
+        List<SortEvent<Integer>> lst = Sorts.selectionSort(arr);
 
         // Print out all the events
         for (SortEvent<Integer> l : lst) {

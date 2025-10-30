@@ -264,13 +264,16 @@ public class Sorts {
         int index = 1;
         while (index < arr.length) {
             lst.add(new CompareEvent<>(index - 1, index));
-            if (index == 0 || arr[index - 1].compareTo(arr[index]) <= 0) {
+            if (index <= 0 || arr[index - 1].compareTo(arr[index]) <= 0) {
                 index++;
             }
             else {
                 lst.add(new SwapEvent<>(index - 1, index));
                 swap(arr, index - 1, index);
                 index--;
+                if (index <= 0) {
+                    index = 1;
+                }
             }
         }
         return lst;
