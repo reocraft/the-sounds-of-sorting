@@ -9,3 +9,8 @@ Author: Reo Saito
 *  https://stackoverflow.com/questions/16112515/how-to-shuffle-an-arraylist
 *  https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics.html
 *  https://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+
+## Revision Changes
+*   Fixed errors / bugs in the code
+*   Main one being the issue of the notes not syncing
+*   Fixed minor errors in some sorts
