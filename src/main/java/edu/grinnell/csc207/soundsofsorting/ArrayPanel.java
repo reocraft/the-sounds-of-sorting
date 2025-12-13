@@ -29,7 +29,7 @@ public class ArrayPanel extends JPanel {
         Integer[] arr = notes.getNotes();
         int width = getWidth();
         int height = getHeight();
-        int size = arr.length - 1;
+        int size = arr.length;
         int barWidth = Math.max(width / size, 1);
 
         for (int i = 0; i < size; i++) {

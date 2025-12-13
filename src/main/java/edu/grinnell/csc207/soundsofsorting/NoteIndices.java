@@ -43,6 +43,16 @@ public class NoteIndices {
     }
     
     /**
+     * Updates the internal notes list from the given array.
+     * @param arr the array to update from
+     */
+    public void updateFromArray(Integer[] arr) {
+        for (int i = 0; i < arr.length && i < notes.size(); i++) {
+            notes.set(i, arr[i]);
+        }
+    }
+    
+    /**
      * Highlights the given index of the note array
      * @param index the index to highlight
      */

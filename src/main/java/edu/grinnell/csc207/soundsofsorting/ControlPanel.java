@@ -49,7 +49,7 @@ public class ControlPanel extends JPanel {
                 return Sorts.bubbleSort(arr);
             case "Merge":
                 return Sorts.mergeSort(arr);
-            case"Quick":
+            case "Quick":
                 return Sorts.quickSort(arr);
             case "Event":
                 return Sorts.eventSort(arr);
@@ -166,7 +166,9 @@ public class ControlPanel extends JPanel {
                             // 4. Highlight those affected indices.
 
                             notes.clearAllHighlighted();
-                            e.apply(notes.getNotes());
+                            Integer[] arr = notes.getNotes();
+                            e.apply(arr);
+                            notes.updateFromArray(arr);
 
                             for (int i : e.getAffectedIndices()) {
                                 notes.highlightNote(i);
