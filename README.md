@@ -13,4 +13,4 @@ Author: Reo Saito
 ## Revision Changes
 *   Fixed errors / bugs in the code
 *   Main one being the issue of the notes not syncing
-*   Fixed minor errors in some sorts
+*   There were some issues in the sorting algorithms so fixed those
